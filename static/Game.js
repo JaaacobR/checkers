@@ -242,6 +242,7 @@ class Game {
   };
 
   getUpdatedData = (currentTab, posToRem) => {
+    this.isPlay = false;
     this.itemekToRem =
       posToRem == null
         ? { x: -1000, z: 1000 }
@@ -300,6 +301,7 @@ class Game {
           .easing(TWEEN.Easing.Sinusoidal.InOut)
           .onUpdate(() => {})
           .onComplete(() => {
+          this.isPlay = true;
             this.checkIfQueen(item);
             if (this.yourPawn == 0) {
               this.ui.LoseScreen();
@@ -310,7 +312,7 @@ class Game {
     });
 
     this.pionki = currentTab;
-    this.isPlay = true;
+    //this.isPlay = true;
   };
   start = () => {
     this.isPlay = true;
